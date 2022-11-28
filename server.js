@@ -12,7 +12,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //connect to db
-const CONNECTION_URI =  "mongodb+srv://bitcoiner:6SRqbpvlcqAGuEiG@cluster0.wbxygqt.mongodb.net/Bitcoin-Test?retryWrites=true&w=majority";
+const CONNECTION_URI =  prcess.env.CONNECTION_URI
 mongoose.connect(CONNECTION_URI)
 .then((result) => {
   console.log('Db connected!');
