@@ -80,10 +80,13 @@
 
         <% if (message.length>0) { %>
             <% message.forEach(message=>{ %> 
+                <a href="/message/<%=message._id%>">
+
                 <h2><%- message.name %> </h2>
                 <p><%- message.email %> </p>
                 <p><%- message.phone %> </p>
                 <p><%- message.message %> </p>
+            </a>
 
                 <% }) %> 
                 <% } else { %>
