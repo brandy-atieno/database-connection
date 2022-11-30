@@ -8,11 +8,29 @@
 </head>
 <body>
     <div class="details">
-    <h1><%= message.name %> </h1>
+    <h1><%= message.name  %> </h1>
     <p><%= message.email %> </p>
     <p><%= message.phone  %> </p>
     <p><%= message.message  %> </p>
+    <button class="del" data-doc="<%= message._id %> ">delete</button>
 </div>
+<script>
+    const deletePractise= document.querySelector('button.del')
+    deletePractise.addEventListener('click',(e)=>{
+        const point=`/message/${deletePractise.dataset.doc}`
+        //endpoint
+        fetch(point,{
+            method:'DELETE'
+        })
+        .then((response)=>response.json()
+
+        )
+        .then((data)=>window.location.href=data.redirect)
+        .catch((error)=>{
+           console.log(error); 
+        })
+    })
+</script>
 
 </body>
 </html>

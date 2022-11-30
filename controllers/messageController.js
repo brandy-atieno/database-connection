@@ -26,14 +26,14 @@ postMessage:((req, res) => {
 res.render('details',{message:result})
     })
     .catch((error)=>{
-      console.log(error);
+      res.render('404');
     })
   }),
   delById:((req,res)=>{
     const id = req.params.id
-    Message.findById(id)
+    Message.findByIdAndDelete(id)
     .then((result)=>{
-res.render('details',{message:result})
+res.json({redirect:'/messages'})
     })
     .catch((error)=>{
       console.log(error);
